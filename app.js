@@ -3,11 +3,22 @@ import 'dotenv/config';
 
 import { connectDB } from './db/mongoConnection.js';
 
+// routers
+import signUpRouter from './routers/signUpRouter.js';
+import signInRouter from './routers/signInRouter.js';
+
 const app = express();
 
+// middleware
+app.use(express.json());
+
+// routes
 app.get('/', (req, res) => {
   res.send('Syzyy API main endpoint!');
 });
+
+app.use('/auth', signUpRouter);
+app.use('/auth', signInRouter);
 
 // server start
 const start = async () => {
