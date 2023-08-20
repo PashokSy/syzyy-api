@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
+import 'express-async-errors';
 
 import { connectDB } from './db/mongoConnection.js';
 
@@ -17,8 +18,8 @@ app.get('/', (req, res) => {
   res.send('Syzyy API main endpoint!');
 });
 
-app.use('/auth', signUpRouter);
-app.use('/auth', signInRouter);
+app.use('/api/v1/auth', signUpRouter);
+app.use('/api/v1/auth', signInRouter);
 
 // server start
 const start = async () => {
