@@ -3,6 +3,8 @@ import 'dotenv/config';
 import 'express-async-errors';
 
 import { connectDB } from './db/mongoConnection.js';
+import { errorHandlerMiddleware } from './middleware/errorHandlerMiddleware.js';
+import { notFoundMiddleware } from './middleware/notFoundMiddleware.js';
 
 // routers
 import signUpRouter from './routers/signUpRouter.js';
@@ -20,6 +22,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', signUpRouter);
 app.use('/api/v1/auth', signInRouter);
+
+app.use(errorHandlerMiddleware);
+app.use(notFoundMiddleware);
 
 // server start
 const start = async () => {
