@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 
-const articlesSchema = new mongoose.Schema({
+const articleSchema = new mongoose.Schema({
   text: {
     type: String,
     require: [true, 'Please provide text'],
-    minlength: 300,
     maxlength: 2400,
   },
   authorId: {
@@ -19,4 +18,8 @@ const articlesSchema = new mongoose.Schema({
   },
 });
 
-export const ArticlesModel = mongoose.model('Articles', articlesSchema);
+articleSchema.pre('save', function () {
+  this.createdAt = new Date(Date.now());
+});
+
+export const ArticleModel = mongoose.model('Articles', articleSchema);
