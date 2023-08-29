@@ -9,6 +9,7 @@ import { notFoundMiddleware } from './middleware/notFoundMiddleware.js';
 // routers
 import signUpRouter from './routers/signUpRouter.js';
 import signInRouter from './routers/signInRouter.js';
+import articleRouter from './routers/articleRouter.js';
 
 const app = express();
 
@@ -16,12 +17,15 @@ const app = express();
 app.use(express.json());
 
 // routes
+const v1 = '/api/v1';
+
 app.get('/', (req, res) => {
   res.send('Syzyy API main endpoint!');
 });
 
-app.use('/api/v1/auth', signUpRouter);
-app.use('/api/v1/auth', signInRouter);
+app.use(`${v1}/auth`, signUpRouter);
+app.use(`${v1}/auth`, signInRouter);
+app.use(`${v1}/article`, articleRouter);
 
 app.use(errorHandlerMiddleware);
 app.use(notFoundMiddleware);
