@@ -40,13 +40,26 @@ export const createCommentary = async (req, res) => {
 };
 
 export const getAllCommentariesByArticle = async (req, res) => {
-  const articleId = req.params.articleId;
+  const articleId = req.params.id;
   if (!articleId) throw new BadRequestError('Article Id not provided');
 
   try {
     const commentaries = await CommentaryModel.find({ articleId });
 
     res.status(200).json(commentaries);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteCommentary = async (req, res) => {
+  const id = req.params.id;
+  if (!id) throw new BadRequestError('Commentary Id not provided');
+
+  try {
+    await CommentaryModel.findByIdAndDelete(id);
+
+    res.status(204).send();
   } catch (error) {
     throw error;
   }
