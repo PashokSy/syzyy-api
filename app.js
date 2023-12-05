@@ -10,6 +10,7 @@ import { notFoundMiddleware } from './middleware/notFoundMiddleware.js';
 import signUpRouter from './routers/signUpRouter.js';
 import signInRouter from './routers/signInRouter.js';
 import articleRouter from './routers/articleRouter.js';
+import commentaryRouter from './routers/commentaryRouter.js';
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 app.use(`${v1}/auth`, signUpRouter);
 app.use(`${v1}/auth`, signInRouter);
 app.use(`${v1}/article`, articleRouter);
+app.use(`${v1}/commentary`, commentaryRouter);
 
 app.use(errorHandlerMiddleware);
 app.use(notFoundMiddleware);
