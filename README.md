@@ -32,11 +32,18 @@ npm start
 
 ## Endpoints
 
-| Endpoint                   | Description           |
-| -------------------------- | --------------------- |
-| POST /api/v1/auth/sign-up  | register new user     |
-| POST /api/v1/auth/sign-in  | login user            |
-| POST /api/v1/article       | create new article    |
-| GET /api/v1/article/:id    | get article by id     |
-| PATCH /api/v1/article/:id  | upgrade article by id |
-| DELETE /api/v1/article/:id | delete article by id  |
+| Endpoint                          | Description                    |
+| --------------------------------- | ------------------------------ |
+| Auth                              |
+| POST /api/v1/auth/sign-up         | register new user              |
+| POST /api/v1/auth/sign-in         | login user                     |
+| Article                           |
+| POST /api/v1/article              | create new article             |
+| GET /api/v1/article               | get all articles               |
+| GET /api/v1/article/:id           | get article by id              |
+| PATCH /api/v1/article/:id         | upgrade article by id          |
+| DELETE /api/v1/article/:id        | delete article by id           |
+| Commentary                        |
+| POST /api/v1/commentary           | create new commentary          |
+| GET /api/v1/commentary/:articleId | get commentaries by article id |
+| GET /api/v1/commentary/:id        | delete commentary by id        |
