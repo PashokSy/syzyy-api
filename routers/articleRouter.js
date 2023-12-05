@@ -4,11 +4,12 @@ import {
   getArticle,
   upgradeArticle,
   deleteArticle,
+  getAllArticles,
 } from '../controllers/articleController.js';
 
 const router = express.Router();
 
-router.route('/').post(createArticle);
+router.route('/').post(createArticle).get(getAllArticles);
 router
   .route('/:id')
   .get(getArticle)

@@ -72,3 +72,13 @@ export const deleteArticle = async (req, res) => {
     throw error;
   }
 };
+
+export const getAllArticles = async (req, res) => {
+  try {
+    const articles = await ArticleModel.find({});
+
+    res.status(200).send(articles);
+  } catch (error) {
+    throw error;
+  }
+};
