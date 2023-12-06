@@ -28,6 +28,6 @@ export const authenticationMiddleware = async (req, res, next) => {
     next();
   } catch (error) {
     console.error(error);
-    throw new UnauthenticatedError('Not authorized to access this route');
+    throw new UnauthorizedError('Not authorized to access this route');
   }
 };
