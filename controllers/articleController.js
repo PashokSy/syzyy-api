@@ -2,13 +2,15 @@ import BadRequestError from '../errors/badRequestError.js';
 import { ArticleModel } from '../models/articles.js';
 
 export const createArticle = async (req, res) => {
-  const { text, authorId } = req.body;
+  const { text, title, authorId } = req.body;
 
-  if (!text || !authorId) {
+  if (!text || !authorId || !title) {
     throw new BadRequestError(
       `${
         !text
           ? 'Text is missing'
+          : !title
+          ? 'Title is missing'
           : !authorId
           ? 'Author id is missing'
           : 'Bad request'

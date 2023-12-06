@@ -1,5 +1,9 @@
 # syzyy-api
 
+## ⚠ under construction ⚠
+
+---
+
 This is a repository for back end API of blog app.
 
 ## Project Setup
