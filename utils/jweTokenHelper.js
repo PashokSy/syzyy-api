@@ -41,3 +41,17 @@ export const generateJWEToken = async (user) => {
     throw error;
   }
 };
+
+export const decryptJWEToken = async (token) => {
+  const ALG = 'RSA-OAEP-256';
+  const ENC = 'A256GCM';
+
+  try {
+    const privateKeyLike = await jose.importPKCS8(process.env.PRIVATE_KEY, ALG);
+    const decryptResult = await jose.compactDecrypt(token, privateKeyLike);
+
+    return new TextDecoder().decode(decryptResult.plaintext);
+  } catch (error) {
+    throw error;
+  }
+};
