@@ -8,8 +8,7 @@ import { errorHandlerMiddleware } from './middleware/errorHandlerMiddleware.js';
 import { notFoundMiddleware } from './middleware/notFoundMiddleware.js';
 
 // routers
-import signUpRouter from './routers/signUpRouter.js';
-import signInRouter from './routers/signInRouter.js';
+import authRouter from './routers/authRouter.js';
 import articleRouter from './routers/articleRouter.js';
 import commentaryRouter from './routers/commentaryRouter.js';
 
@@ -26,8 +25,7 @@ app.get('/', (req, res) => {
   res.send('Syzyy API main endpoint!');
 });
 
-app.use(`${v1}/auth`, signUpRouter);
-app.use(`${v1}/auth`, signInRouter);
+app.use(`${v1}/auth`, authRouter);
 app.use(`${v1}/article`, articleRouter);
 app.use(`${v1}/commentary`, commentaryRouter);
 
