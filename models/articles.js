@@ -11,7 +11,7 @@ const articleSchema = new mongoose.Schema({
     require: [true, 'Please provide title'],
     maxlength: 500,
   },
-  authorId: {
+  author: {
     type: String,
     require: [true, 'Please provide author id'],
   },

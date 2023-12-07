@@ -4,7 +4,7 @@ import { ArticleModel } from '../models/articles.js';
 
 export const createArticle = async (req, res) => {
   const { text, title } = req.body;
-  const { _id: authorId } = req.user;
+  const { nickName: author } = req.user;
 
   if (!text || !title) {
     throw new BadRequestError(
@@ -18,7 +18,7 @@ export const createArticle = async (req, res) => {
     const article = await ArticleModel.create({
       text,
       title,
-      authorId,
+      author,
     });
 
     res.status(201).json({
