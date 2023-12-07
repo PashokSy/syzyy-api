@@ -9,6 +9,7 @@ import { notFoundMiddleware } from './middleware/notFoundMiddleware.js';
 
 // routers
 import authRouter from './routers/authRouter.js';
+import authorRouter from './routers/authorRouter.js';
 import articleRouter from './routers/articleRouter.js';
 import commentaryRouter from './routers/commentaryRouter.js';
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(`${v1}/auth`, authRouter);
+app.use(`${v1}/author`, authorRouter);
 app.use(`${v1}/article`, articleRouter);
 app.use(`${v1}/commentary`, commentaryRouter);
 
